@@ -1,0 +1,15 @@
+{
+  "materials": [
+    {
+      "id": "tml-cc0-demo",
+      "name": "白发绿眼角色 · CC0 制作示例",
+      "file": "assets/upstream/tml/psd-input/tml.psd",
+      "sha256": "d8564e0181368a5b70de461e2938206bc1dc25b60100dc227e88381087630c36",
+      "license": "CC0-1.0",
+      "licenseReviewed": true,
+      "previewCrop": [256, 0, 512, 576],
+      "source": "https://github.com/tsunehimatoi/psd2live-examples/tree/main/cases/tml",
+      "scope": "制作链示例；不是用户图片定制或最终美术认可"
+    }
+  ]
+}

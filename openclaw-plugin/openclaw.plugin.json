@@ -1,0 +1,30 @@
+{
+  "id": "live2d-streamer",
+  "name": "Live2D虚拟主播",
+  "version": "0.4.0",
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "tools": [
+      "avatar_inputs",
+      "avatar_materials",
+      "avatar_make",
+      "avatar_making",
+      "avatar_status",
+      "avatar_inspect",
+      "avatar_connect",
+      "avatar_load",
+      "avatar_expressions",
+      "avatar_expression",
+      "avatar_restore",
+      "avatar_prepare_obs",
+      "avatar_deliver"
+    ]
+  },
+  "configSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  }
+}

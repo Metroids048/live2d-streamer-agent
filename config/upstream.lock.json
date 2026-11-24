@@ -1,0 +1,23 @@
+{
+  "psd2live": {
+    "repository": "https://github.com/tsunehimatoi/psd2live",
+    "version": "3.6.7",
+    "commit": "bfadd8343774d5b6208146060c4fa175d84a0f4f",
+    "localPath": ".local/tools/psd2live",
+    "license": "GPL-3.0; submodules follow upstream notices",
+    "gradleVersion": "9.6.1",
+    "gradleSha256": "9c0f7faeeb306cb14e4279a3e084ca6b596894089a0638e68a07c945a32c9e14",
+    "mcpPort": 23872,
+    "mcpStore": ".local/psd2live-workspace"
+  },
+  "vtubeleaf": {
+    "repository": "https://github.com/moonrailgun/vtubeleaf",
+    "version": "1.3.1",
+    "release": "https://github.com/moonrailgun/vtubeleaf/releases/tag/v1.3.1",
+    "asset": "VTubeLeaf-1.3.1-macos-universal.dmg",
+    "bytes": 62602716,
+    "sha256": "9ce555dd280722c326af0bb82e352ebdf767910e12ba4914482382a2c6feee99",
+    "license": "MIT for application code; third-party components separately licensed",
+    "role": "No-Steam local tracking candidate; existing VTS API adapter is not compatible"
+  }
+}

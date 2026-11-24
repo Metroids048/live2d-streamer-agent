@@ -1,0 +1,1 @@
+{"name":"live2d-streamer-agent","version":"0.1.0","private":true,"type":"module","scripts":{"test":"node --test","status":"node scripts/cli.mjs status"},"engines":{"node":">=24"}}

@@ -1,0 +1,20 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {spawn} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+const root=fileURLToPath(new URL('../../',import.meta.url));
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const config=JSON.parse(await fs.readFile(path.join(root,'config/psd2live-runtime.json')));
+const manifestBytes=await fs.readFile(path.join(root,config.manifest));
+if(hash(manifestBytes)!==config.manifestSha256)throw Error('Runtime manifest changed');
+const runtime=JSON.parse(manifestBytes);
+for(const r of [...runtime.runtimeComponents,runtime.compiler])if(hash(await fs.readFile(r.path))!==r.sha256)throw Error('Component changed: '+r.path);
+const java=(await fs.readFile(path.join(root,'.local/tools/psd2live/build/run/java'),'utf8')).trim();
+const cp=runtime.runtimeComponents.map(x=>x.path).join(path.delimiter);
+const out=path.resolve(process.argv[3]);await fs.mkdir(out,{recursive:true});
+const jar=path.join(out,'reference-rig-helper.jar');
+async function run(args){await new Promise((resolve,reject)=>{const p=spawn(java,args,{stdio:'inherit'});p.once('error',reject);p.once('exit',code=>code===0?resolve():reject(Error('Java exit '+code)));});}
+await run(['-cp',runtime.compiler.path+path.delimiter+cp,'org.jetbrains.kotlin.cli.jvm.K2JVMCompiler','-jvm-target','21','-no-stdlib','-no-reflect','-Xfriend-paths='+runtime.runtimeJar,'-classpath',cp,'-d',jar,path.join(root,'scripts/reference-rig/ReferenceRig.kt')]);
+await run(['-Djava.awt.headless=true','-Xmx4500m','-cp',jar+path.delimiter+cp,'local.reference.ReferenceRigKt',path.resolve(process.argv[2]),out,...process.argv.slice(4)]);
+await fs.writeFile(path.join(out,'runtime-provenance.json'),JSON.stringify({runtimeManifest:config,helperSha256:hash(await fs.readFile(jar)),sourceSha256:hash(await fs.readFile(path.join(root,'scripts/reference-rig/ReferenceRig.kt')))},null,2));

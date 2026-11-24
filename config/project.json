@@ -1,0 +1,30 @@
+{
+  "projectId": "live2d-mac-bilibili",
+  "vtsUrl": "ws://127.0.0.1:8001",
+  "obsUrl": "ws://127.0.0.1:4455",
+  "modelRoot": "models",
+  "approvedModels": [],
+  "singleImage": {
+    "artwork": {
+      "enabled": true,
+      "route": "seedream-v5-flash/layer-decomposition",
+      "flashIntake": {
+        "allowUploadForQuote": false,
+        "maxUnitFen": 11,
+        "maxEstimatedTotalFen": 187
+      },
+      "useIncludedChatGptWaveForRequestedGesture": false,
+      "provider": "runninghub",
+      "budgetAuthorized": false,
+      "allowUnpinnedModel": false,
+      "pollIntervalMs": 10000,
+      "maxWaitMs": 600000
+    }
+  },
+  "sceneName": "Live2D · 本机B站预览",
+  "captureName": "Live2D · VTS窗口",
+  "bilibili": {
+    "status": "unconfigured",
+    "entry": "https://app.bilibili.com/"
+  }
+}

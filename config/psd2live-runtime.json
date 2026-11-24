@@ -1,0 +1,6 @@
+{
+  "manifest": "evidence/single-image-live2d/03/full-quality-20261104/native-mesh-resolution-runtime.json",
+  "manifestSha256": "b27759f2baddabc5ba05f87079bbd16ecc3ee396ecee666a95f98e20d38fc090",
+  "argsTemplate": ".local/tools/psd2live/build/run/reviewed-native-mesh-resolution.args",
+  "argsSha256": "e69df3aad2e7338b67773f6fe10f8c80b4f181a9e1efd42adf2e81c43e540883"
+}
